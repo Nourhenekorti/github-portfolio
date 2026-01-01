@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nourhene Korti - Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      color: #2b2b2b;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #009688;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 10%;
+      background: linear-gradient(to right, #f0fff3, #d7fce7);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    header img {
+      width: 260px;
+      height: 260px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .intro {
+      max-width: 600px;
+    }
+    .intro h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #009688;
+    }
+    .intro p {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    /* About Section */
+    .about-section {
+      background: #f9f9f9;
+      padding: 80px 10%;
+    }
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .about-text h2 {
+      color: #009688;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .about-text h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-image {
+      flex: 1;
+      min-width: 260px;
+      text-align: center;
+    }
+    .about-image img {
+      width: 280px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 32px;
+      border-bottom: 2px solid #009688;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    h2 i {
+      font-size: 0.8em;
+      margin-right: 8px;
+      color: #555;
+    }
+    /* Skills Section with animations */
+    #competences {
+      background: linear-gradient(135deg, #f8fffe 0%, #f0fff3 100%);
+      border-radius: 20px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #competences::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,150,136,0.03) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .skills-col {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0,150,136,0.1);
+      border: 1px solid rgba(0,150,136,0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .skills-col::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(0,150,136,0.1), transparent);
+      transition: all 0.6s ease;
+    }
+    
+    .skills-col:hover::before {
+      top: 100%;
+    }
+    
+    .skills-col:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,150,136,0.2);
+      border-color: #009688;
+    }
+    
+    .skills-col strong {
+      display: block;
+      color: #009688;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .skills-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .skills-col ul li {
+      background: #f8f9fa;
+      margin-bottom: 8px;
+      padding: 8px 15px;
+      border-radius: 8px;
+      color: #555;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    
+    .skills-col:hover ul li {
+      transform: translateX(5px);
+      border-left-color: #009688;
+      background: #f0fff3;
+    }
+    
+    .skills-col ul li:nth-child(odd) {
+      animation-delay: 0.1s;
+    }
+    
+    .skills-col ul li:nth-child(even) {
+      animation-delay: 0.2s;
+    }
+    ul li {
+      margin-bottom: 6px;
+    }
+    .card {
+      background: #ffffff;
+      border-left: 5px solid #009688;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    /* Timeline Design for experiences */
+    .timeline-container {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #009688, #00b89d, #009688);
+      border-radius: 3px;
+    }
+    
+    .experience-item {
+      position: relative;
+      background: #ffffff;
+      margin: 0 0 40px 70px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,150,136,0.1);
+      border: 1px solid rgba(0,150,136,0.1);
+      transition: all 0.4s ease;
+    }
+    
+    .experience-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 15px 40px rgba(0,150,136,0.2);
+      border-color: #009688;
+    }
+    
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -44px;
+      top: 25px;
+      width: 18px;
+      height: 18px;
+      background: #009688;
+      border: 4px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(0,150,136,0.2);
+      z-index: 2;
+    }
+    
+    .experience-item::after {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 28px;
+      width: 0;
+      height: 0;
+      border-left: 12px solid #009688;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      opacity: 0.8;
+    }
+    
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .experience-title h3 {
+      color: #2b2b2b;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+    
+    .company-name {
+      color: #009688;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .company-name::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #009688;
+      border-radius: 50%;
+    }
+    
+    .experience-date {
+      color: #666;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .experience-description {
+      color: #555;
+      line-height: 1.8;
+      font-size: 16px;
+      margin-top: 15px;
+      padding-left: 20px;
+      border-left: 3px solid #f0f8f7;
+    }
+    
+    .experience-type {
+      position: static;
+      display: inline-block;
+      background: linear-gradient(135deg, #009688, #00b89d);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 0 4px 15px rgba(0,150,136,0.3);
+      margin-bottom: 15px;
+    }
+    #volunteer {
+  background: #f0fff3;
+  padding: 80px 10%;
+}
+
+#volunteer .card {
+  border-left: 5px solid #ff6b6b; /* couleur rouge pour l'engagement social */
+}
+
+    
+    footer {
+      background: #009688;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
+    .contact-icons {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+    .contact-icons a {
+      margin: 0 10px;
+      color: white;
+      transition: color 0.3s;
+    }
+    .contact-icons a:hover {
+      color: #c8f7ef;
+    }
+    
+    /* Responsive for timeline */
+    @media (max-width: 768px) {
+      .timeline-container::before {
+        left: 15px;
+      }
+      
+      .experience-item {
+        margin-left: 45px;
+      }
+      
+      .experience-item::before {
+        left: -29px;
+      }
+      
+      .experience-item::after {
+        left: -10px;
+      }
+      
+      .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .experience-date {
+        align-self: flex-start;
+      }
+      
+      .experience-type {
+        position: static;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#competences">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projet">Project</a>
+    <a href="#certif">Certifications</a>
+    <a href="#langues">Languages</a>
+    <a href="#volunteer">Volunteering</a>
+  </nav>
+
+  <header>
+    <div class="intro">
+      <h1>HEY, I'M NOURHENE</h1>
+      <p>Network and Telecommunications Engineer</p>
+      <p>Passionate about cybersecurity, intelligent systems, and AI integration</p>
+    </div>
+    <img src="photo.jpg" alt="Photo of Nourhene" />
+  </header>
+
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-text">
+        <h2><i class="fa-solid fa-user"></i> ABOUT</h2>
+        <h3>WHO I AM</h3>
+        <p>Graduate Engineer in Computer Networks and Telecommunications, passionate about cybersecurity, intelligent systems, and the integration of artificial intelligence in embedded systems.</p>
+        <p>I stand out for my curiosity, analytical mindset, and ability to quickly adapt to new technological environments. My journey has allowed me to develop concrete projects, such as an intelligent glove for sign language translation.</p>
+      </div>
+      <div class="about-image">
+        <img src="photo2.JPG" alt="Digital illustration of Nourhene" />
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2><i class="fa-solid fa-gears"></i> Technical Skills</h2>
+    <div class="skills-list">
+      <div class="skills-col">
+        <strong>Networking</strong>
+        <ul>
+          <li>Cisco Packet Tracer</li>
+          <li>Wireshark</li>
+          <li>Sophos</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <strong>Development</strong>
+        <ul>
+          <li>HTML, CSS, JS, PHP</li>
+          <li>XML, SQL, MySQL</li>
+          <li>PostgreSQL, phpMyAdmin</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <strong>Programming & Tools</strong>
+        <ul>
+          <li>Arduino IDE</li>
+          <li>VS Code, Android Studio</li>
+          <li>CST Studio</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <strong>Modeling</strong>
+        <ul>
+          <li>UML</li>
+          <li>Merise</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+    
+    <div class="timeline-container">
+      <div class="experience-item">
+        <div class="experience-type">Final Year Internship</div>
+        <div class="experience-header">
+          <div class="experience-title">
+            <h3>Secure Infrastructure with Sophos XG 20</h3>
+            <div class="company-name"><i class="fas fa-building"></i> SPA GROUPE CHIALI</div>
+          </div>
+          <div class="experience-date">
+            <i class="fas fa-calendar-alt"></i>
+            February 2025
+          </div>
+        </div>
+        <div class="experience-description">
+          Implementation of a secure infrastructure with Sophos XG 20, including a DHCP server in a virtualized environment. Configuration of security policies and network performance optimization.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-type">Integration Internship</div>
+        <div class="experience-header">
+          <div class="experience-title">
+            <div class="company-name"><i class="fas fa-ship"></i> Hyproc Shipping Company</div>
+          </div>
+          <div class="experience-date">
+            <i class="fas fa-calendar-alt"></i>
+            April 2024
+          </div>
+        </div>
+        <div class="experience-description">
+          Development of a complete website for document management with intuitive user interface, automatic classification system, and advanced search features.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-type">Integration Internship</div>
+        <div class="experience-header">
+          <div class="experience-title">
+            <div class="company-name"><i class="fas fa-industry"></i> Sonatrach</div>
+          </div>
+          <div class="experience-date">
+            <i class="fas fa-calendar-alt"></i>
+            January 2024
+          </div>
+        </div>
+        <div class="experience-description">
+          Design and development of a mobile application for managing truck access to the Arzew Industrial Zone (ZIA), including biometric authentication system and real-time traceability.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-type">Observation Internship</div>
+        <div class="experience-header">
+          <div class="experience-title">
+            <div class="company-name"><i class="fas fa-signal"></i> Algérie Télécom</div>
+          </div>
+          <div class="experience-date">
+            <i class="fas fa-calendar-alt"></i>
+            March 2023
+          </div>
+        </div>
+        <div class="experience-description">
+          Observation and analysis of daily operations of the EMRC service in Metro, BNG, RMS, LTE, and Soft switch sections. Learning network maintenance protocols and intervention procedures.
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-type">Observation Internship</div>
+        <div class="experience-header">
+          <div class="experience-title">
+            <div class="company-name"><i class="fas fa-user-shield"></i> CNAS</div>
+          </div>
+          <div class="experience-date">
+            <i class="fas fa-calendar-alt"></i>
+            December 2022
+          </div>
+        </div>
+        <div class="experience-description">
+          Collaboration with a team of network engineers to understand the architecture and configure CNAS network equipment. In-depth training on network security protocols and best practices.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projet">
+    <h2><i class="fa-solid fa-lightbulb"></i> Final Year Project</h2>
+    <div class="card">
+      <strong>Intelligent system for translating sign language into voice from a connected glove, based on AI models and LLMs</strong>
+    </div>
+  </section>
+
+  <section id="certif">
+    <h2><i class="fa-solid fa-award"></i> Certifications</h2>
+    <p><strong>Goethe-Zertifikat B2:</strong> German Language Proficiency</p>
+    <p><strong>CCNA 3:</strong> Enterprise Networks, Security, and Automation</p>
+    <p><strong>CCNA 2:</strong> Routing, Switching, and Wireless Essentials</p>
+    <p><strong>CCNA 1:</strong> Introduction to Networks</p>
+    
+  </section>
+
+  <section id="langues">
+    <h2><i class="fa-solid fa-language"></i> Languages</h2>
+    <p><strong>Arabic:</strong> Native</p>
+    <p><strong>French:</strong> Advanced (C1)</p>
+    <p><strong>German:</strong> Intermediate (B2)</p>
+    <p><strong>English:</strong> Intermediate</p>
+
+  </section>
+  <section id="volunteer">
+  <h2><i class="fa-solid fa-hand-holding-heart"></i> Volunteering & Social Engagement</h2>
+
+  <div class="card">
+    <strong><i class="fas fa-fire-extinguisher"></i> Firefighter Volunteer</strong>
+    <p>Actively participating in emergency response exercises and first aid training as part of the local firefighter volunteer team.</p>
+    <p><em>Since January 2025 – First Aid & Rescue</em></p>
+  </div>
+
+  <div class="card">
+    <strong><i class="fas fa-plus-square"></i> Red Crescent Volunteer</strong>
+    <p>Engaged in humanitarian missions, first aid assistance, and community support activities.</p>
+    <p><em>Since January 2025 – First Aid & Rescue</em></p>
+  </div>
+</section>
+
+
+
+  <footer>
+    <p>© 2025 Nourhene Korti | Personal portfolio developed with passion 💚</p>
+    <div class="contact-icons">
+      <a href="mailto:exemple@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/nourhene-korti-1056a2252/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://wa.me/+213557794078" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+         <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
